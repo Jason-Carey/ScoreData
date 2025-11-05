@@ -75,12 +75,20 @@ void UScoreSubsystem::SetSystemScore(const int32 Value)
 {
 	const int32 PrevScore = SystemScore;
 	SystemScore = Value;
-	OnSystemScoreSet.Broadcast(PrevScore, SystemScore);
+	
+	if (PrevScore != SystemScore)
+    {	
+        OnSystemScoreSet.Broadcast(PrevScore, SystemScore);
+    }
 }
 
 void UScoreSubsystem::SetSystemScoreMax(const int32 Value)
 {
 	const int32 PrevScoreMax = SystemScoreMax;
 	SystemScoreMax = Value;
-	OnSystemScoreMaxSet.Broadcast(PrevScoreMax, SystemScoreMax);
+	
+	if (PrevScoreMax != SystemScoreMax)
+    {	
+        OnSystemScoreMaxSet.Broadcast(PrevScoreMax, SystemScoreMax);
+    }
 }
